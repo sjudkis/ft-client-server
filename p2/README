@@ -1,0 +1,33 @@
+Sam Judkis
+CS372 Project 2
+
+Compilation:
+    compile ftserver with: "make"
+    makefile is included
+
+Execution:
+    Start server with: "./ftserver <PORT>"
+    Server will start listening for connections on given port, if available
+
+    Client can be executed with two command formats:
+        list directory: "ftclient.py <HOST_NAME> <COMMAND_PORT> -l <DATA_PORT>"
+        file transfer: "ftclient.py <HOST_NAME> <COMMAND_PORT> -g <FILENAME> <DATA_PORT>"
+
+    Client will connect to server on host  <HOST_NAME> and send command via <COMMAND_PORT>
+    Data from server will be transferred on <DATA_PORT>
+
+
+When connecting to one of the Flip servers, the client will accept flip1, flip2, or flip3
+as the host name argument, instead of the full "flipX.engr.oregonstate.edu"
+
+When the Server sends the list of files in the directory, it does not include hidden files.
+
+When checking if a requested file exists, the Server compares the file name to the list
+of files within the directory. Hidden files will not be transmitted. file paths will
+also not be accepted because the file at the end of the path is not in the current directory. 
+
+The Server checks if the requested file is actually a directory and sends an error message to 
+the client if so. 
+
+If the client requests a file with a filename that already exists in the clients directory,
+the user will be asked if they want to replace the old file with the new one.
