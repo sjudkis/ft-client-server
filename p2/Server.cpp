@@ -1,4 +1,5 @@
 #include "Server.hpp"
+#include "Socketft.hpp"
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -245,19 +246,19 @@ void Server::parse_command(char *command, char *command_array[3])
  *      - prints information about the connection process as it goes on
  *        including any errors
 **************************************************/
-void Server::handle_client()
+void Server::handle_client(int newfd, char *connected_host)
 {
 
-    /************************************************/
-    // accept client connection
-    /************************************************/
+    // /************************************************/
+    // // accept client connection
+    // /************************************************/
 
-    // pass in address of pointer to store connected host name
-    char * connected_host = NULL;
-    int newfd = accept_client(&connected_host);
+    // // pass in address of pointer to store connected host name
+    // char * connected_host = NULL;
+    // int newfd = accept_client(&connected_host);
 
-    // print name of client host
-    cout << "Connection from " << connected_host << endl;
+    // // print name of client host
+    // cout << "Connection from " << connected_host << endl;
 
 
 
@@ -430,6 +431,7 @@ int Server::open_data_connection(char * data_port, char *host)
     if (datafd < 0)
     {    
         fprintf(stderr, "ERROR: unable to create data socket\n");
+        fflush(stderr);
         freeaddrinfo(res);
         return -1;
     }
@@ -440,6 +442,7 @@ int Server::open_data_connection(char * data_port, char *host)
     {
         fprintf(stderr, "ERROR: unable to start data transfer connection with host %s:%s\n", 
                 host, data_port);
+        fflush(stderr);
         freeaddrinfo(res);
         return -1;
     }

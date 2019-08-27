@@ -26,8 +26,11 @@
 #include <iostream>
 #include <cctype>
 #include <cstring>
+#include <omp.h>
 
 using std::cout;
+using std::endl;
+
 bool valid_port(char*);
 
 int main(int argc, char* argv[])
@@ -60,8 +63,22 @@ int main(int argc, char* argv[])
     // continuously loop to accept client connections
     while (true)
     {
+        /************************************************/
+        // accept client connection
+        /************************************************/
+
+        // pass in address of pointer to store connected host name
+        char * connected_host = NULL;
+        int newfd = server.accept_client(&connected_host);
+
+        // print name of client host
+        cout << "Connection from " << connected_host << endl;
+
+
         // call member function to handle a client connection
-        server.handle_client();
+        #pragma omp task
+        server.handle_client(newfd, connected_host);
+        
     }
 
     return 0;

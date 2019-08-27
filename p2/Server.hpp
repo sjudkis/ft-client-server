@@ -15,15 +15,15 @@ class Server
     public:
         Server(char* port);
         char* get_port();
-        bool start_server();
-        void handle_client();
+        bool start_server(); //
+        void handle_client(int, char*);
         int accept_client(char**);
         void recv_command(int newfd, char * [3]);
         void parse_command(char *, char * [3]);
         void list_directory(char *, char *);
         bool send_message(const char *, int&);
         vector<string> get_dir_contents();
-        int open_data_connection(char *, char*);
+        int open_data_connection(char *, char*); //
         bool valid_filename(char *);
         bool is_directory(char *);
         bool transfer_file(int&, char *, char *, char *);

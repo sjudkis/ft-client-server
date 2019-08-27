@@ -1,11 +1,11 @@
 XX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic-errors -g
+CXXFLAGS = -std=c++11 -Wall -Wextra -pedantic-errors -fopenmp -g
 
 PRGM = ftserver
 
-OBJS = ftserver.o Server.o
-SRCS = ftserver.cpp Server.cpp
-HDRS = Server.hpp
+OBJS = ftserver.o Server.o Socketft.o
+SRCS = ftserver.cpp Server.cpp Socketft.cpp
+HDRS = Server.hpp Socketft.hpp
 
 
 
