@@ -10,8 +10,8 @@ Execution:
     Server will start listening for connections on given port, if available
 
     Client can be executed with two command formats:
-        list directory: "ftclient.py <HOST_NAME> <COMMAND_PORT> -l <DATA_PORT>"
-        file transfer: "ftclient.py <HOST_NAME> <COMMAND_PORT> -g <FILENAME> <DATA_PORT>"
+        list directory: "python3 ftclient.py <HOST_NAME> <COMMAND_PORT> -l <DATA_PORT>"
+        file transfer:  "python3 ftclient.py <HOST_NAME> <COMMAND_PORT> -g <FILENAME> <DATA_PORT>"
 
     Client will connect to server on host  <HOST_NAME> and send command via <COMMAND_PORT>
     Data from server will be transferred on <DATA_PORT>

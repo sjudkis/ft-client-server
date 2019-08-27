@@ -1,4 +1,0 @@
-#!/bin/bash
-
-ftclient.py flip3 32411 -g longish.txt 32412 &
-ftclient.py flip3 32411 -l 32413 &

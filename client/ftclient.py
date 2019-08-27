@@ -1,8 +1,5 @@
-#!/bin/python3
-
 # Program Name: ftclient
 # Author: Sam Judkis
-# Last Modified: 6/2/19
 # Description:
 #   main file for file transfer client, using my original Client class.
 #   accepts command line argument in two ways:
